@@ -558,7 +558,7 @@ st.markdown(
                 <h3 style="color: #e94560; margin: 0 0 4px; font-size: 20px;">
                     Vinayak Bajoria
                 </h3>
-                <a href="https://www.linkedin.com/in/vinayak-bajoria/"
+                <a href="https://www.linkedin.com/in/bajoriavinayak/"
                    target="_blank"
                    style="color: #0a66c2; font-size: 13px; text-decoration: none;">
                     🔗 LinkedIn
