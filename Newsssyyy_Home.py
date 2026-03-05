@@ -127,7 +127,8 @@ with col_timeline:
     timeline_map = {
         "1 day": 1, "2 days": 2, "3 days": 3, "4 days": 4,
         "5 days": 5, "6 days": 6, "7 days": 7,
-        "15 days": 15, "30 days": 30,
+        "15 days": 15, "1 month": 30, "3 months": 90,
+        "6 months": 180, "9 months": 270, "12 months": 365,
     }
     timeline = st.selectbox("📅 Timeline", list(timeline_map.keys()), index=8)
     days = timeline_map[timeline]

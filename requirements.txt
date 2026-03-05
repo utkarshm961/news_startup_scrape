@@ -12,6 +12,9 @@ beautifulsoup4
 requests
 plotly
 
+# Oil & Gas / War Analysis
+yfinance
+
 # Heavy ML models (uncomment for full pipeline)
 # sentence-transformers
 # transformers
