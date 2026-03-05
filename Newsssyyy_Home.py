@@ -479,9 +479,19 @@ else:
     """)
 
 # ── Credits Section ────────────────────────────────────────────
+import base64
+
+def get_base64_image(path: str) -> str:
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+assets_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+utkarsh_b64 = get_base64_image(os.path.join(assets_dir, "utkarsh.png"))
+vinayak_b64 = get_base64_image(os.path.join(assets_dir, "vinayak.png"))
+
 st.markdown("---")
 st.markdown(
-    """
+    f"""
     <div style="
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
         border-radius: 16px;
@@ -508,7 +518,11 @@ st.markdown(
                 max-width: 380px;
                 flex: 1;
                 min-width: 280px;
+                text-align: center;
             ">
+                <img src="data:image/png;base64,{utkarsh_b64}"
+                     style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+                            border: 3px solid #e94560; margin-bottom: 16px;" />
                 <h3 style="color: #e94560; margin: 0 0 4px; font-size: 20px;">
                     Utkarsh Mishra
                 </h3>
@@ -517,7 +531,7 @@ st.markdown(
                    style="color: #0a66c2; font-size: 13px; text-decoration: none;">
                     🔗 LinkedIn
                 </a>
-                <p style="color: #ccc; font-size: 14px; line-height: 1.65; margin-top: 12px;">
+                <p style="color: #ccc; font-size: 14px; line-height: 1.65; margin-top: 12px; text-align: left;">
                     Blends first-principles thinking with operator empathy.
                     <b>BITS</b> grad trained in engineering &amp; physics, shaped by
                     <b>product, consulting</b> &amp; <b>investing</b> trenches —
@@ -536,7 +550,11 @@ st.markdown(
                 max-width: 380px;
                 flex: 1;
                 min-width: 280px;
+                text-align: center;
             ">
+                <img src="data:image/png;base64,{vinayak_b64}"
+                     style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+                            border: 3px solid #e94560; margin-bottom: 16px;" />
                 <h3 style="color: #e94560; margin: 0 0 4px; font-size: 20px;">
                     Vinayak Bajoria
                 </h3>
@@ -545,11 +563,14 @@ st.markdown(
                    style="color: #0a66c2; font-size: 13px; text-decoration: none;">
                     🔗 LinkedIn
                 </a>
-                <p style="color: #ccc; font-size: 14px; line-height: 1.65; margin-top: 12px;">
-                    AI Platform Engineer who builds end-to-end ML systems —
-                    from data pipelines and model training to production deployment.
-                    Passionate about turning research into real-world products
-                    with clean code and scalable architecture.
+                <p style="color: #ccc; font-size: 14px; line-height: 1.65; margin-top: 12px; text-align: left;">
+                    Merges deep engineering instinct with a bias for shipping.
+                    <b>MS</b> in Computer Science, forged through <b>AI platform
+                    engineering, ML pipelines</b> &amp; <b>full-stack</b> builds —
+                    turns raw research into production-grade systems, clean APIs,
+                    and scalable architecture. Relentless about quality, fast in
+                    iteration, comfortable in complexity, and quietly obsessed
+                    with making things work at scale. The builder you want on day one.
                 </p>
             </div>
         </div>
