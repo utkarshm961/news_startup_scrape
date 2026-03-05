@@ -477,3 +477,83 @@ else:
     📊 **Want to explore our full dataset?** Head to the **Dataset Analysis** page in the sidebar
     to compare results across 50 startups + 5 MNCs.
     """)
+
+# ── Credits Section ────────────────────────────────────────────
+st.markdown("---")
+st.markdown(
+    """
+    <div style="
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border-radius: 16px;
+        padding: 40px 36px;
+        margin-top: 20px;
+    ">
+        <h2 style="
+            text-align: center;
+            color: #e94560;
+            font-size: 28px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        ">🙌 Built By</h2>
+        <p style="text-align: center; color: #888; font-size: 14px; margin-bottom: 36px;">
+            The minds behind Newsssyyy
+        </p>
+        <div style="display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;">
+            <!-- Utkarsh -->
+            <div style="
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 14px;
+                padding: 28px 24px;
+                max-width: 380px;
+                flex: 1;
+                min-width: 280px;
+            ">
+                <h3 style="color: #e94560; margin: 0 0 4px; font-size: 20px;">
+                    Utkarsh Mishra
+                </h3>
+                <a href="https://www.linkedin.com/in/utkarsh-mishra-60a3b5187/"
+                   target="_blank"
+                   style="color: #0a66c2; font-size: 13px; text-decoration: none;">
+                    🔗 LinkedIn
+                </a>
+                <p style="color: #ccc; font-size: 14px; line-height: 1.65; margin-top: 12px;">
+                    Blends first-principles thinking with operator empathy.
+                    <b>BITS</b> grad trained in engineering &amp; physics, shaped by
+                    <b>product, consulting</b> &amp; <b>investing</b> trenches —
+                    turns messy realities into clear strategy, sharper processes,
+                    and scalable outcomes. Curious by nature, disciplined in
+                    execution, calm under ambiguity, and quietly ambitious about
+                    building value. The generalist you're looking for.
+                </p>
+            </div>
+            <!-- Vinayak -->
+            <div style="
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 14px;
+                padding: 28px 24px;
+                max-width: 380px;
+                flex: 1;
+                min-width: 280px;
+            ">
+                <h3 style="color: #e94560; margin: 0 0 4px; font-size: 20px;">
+                    Vinayak Bajoria
+                </h3>
+                <a href="https://www.linkedin.com/in/vinayak-bajoria/"
+                   target="_blank"
+                   style="color: #0a66c2; font-size: 13px; text-decoration: none;">
+                    🔗 LinkedIn
+                </a>
+                <p style="color: #ccc; font-size: 14px; line-height: 1.65; margin-top: 12px;">
+                    AI Platform Engineer who builds end-to-end ML systems —
+                    from data pipelines and model training to production deployment.
+                    Passionate about turning research into real-world products
+                    with clean code and scalable architecture.
+                </p>
+            </div>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
