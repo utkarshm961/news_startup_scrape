@@ -15,6 +15,40 @@ import config
 from src.data_loader import Company
 from src.news_scraper import scrape_google_news_rss, Article
 
+from fuzzywuzzy import fuzz
+import re
+
+def fuzzy_company_match(articles: list, company_name: str, threshold: int = 75) -> list:
+    """
+    Fuzzy match company name in articles with configurable strictness.
+    
+    threshold: 
+    - 100 = exact match only
+    - 85-95 = strict (handles typos like "Protecto AI" vs "Protecto.ai")
+    - 75-84 = moderate (recommended for startups)
+    - <75 = loose (high false positive risk)
+    """
+    # Normalize company name
+    company_clean = company_name.lower().replace(".", "").replace("-", " ").strip()
+    company_words = set(w for w in company_clean.split() if len(w) > 2)
+    
+    results = []
+    for a in articles:
+        text = f"{a.get('title','')} {a.get('snippet','')}".lower()
+        
+        # Check 1: Direct fuzzy match on full name
+        similarity = fuzz.token_set_ratio(company_clean, text)
+        
+        # Check 2: Ensure at least one key word from company name exists
+        has_key_word = any(word in text for word in company_words)
+        
+        if similarity >= threshold and has_key_word:
+            results.append(dict(a, 
+                              fuzzy_score=round(similarity / 100, 3),
+                              match_type="fuzzy_match"))
+    
+    return sorted(results, key=lambda x: x["fuzzy_score"], reverse=True)[:20]
+
 st.set_page_config(
     page_title="Newsssyyy",
     page_icon="📰",
@@ -173,8 +207,7 @@ if query:
     else:
         # ── Pre-compute ALL algorithm results ──────────────────
         tfidf_res = tfidf_search(articles, query)
-        kw_res = keyword_search(articles, query)
-        topics = topic_extraction(articles)
+        kw_res = fuzzy_company_match(articles, query, threshold=75)  # 75 = good balance for startups        topics = topic_extraction(articles)
         pct = len(kw_res) / len(articles) * 100 if articles else 0
 
         # Coverage sub-scores
@@ -271,13 +304,14 @@ if query:
                         """)
                     with col_verdict:
                         st.metric("Matches", len(kw_res))
-                        st.metric("Match %", f"{pct:.0f}%")
-                        if pct > 80:
-                            st.warning("⚠️ Likely over-matching")
-                        elif pct > 30:
-                            st.success("✅ Reasonable match rate")
+                        match_pct = len(kw_res) / len(articles) * 100 if articles else 0
+                        st.metric("Match %", f"{match_pct:.0f}%")
+                        if match_pct > 50:
+                            st.warning("⚠️ May need stricter threshold")
+                        elif match_pct > 10:
+                            st.success("✅ Targeted matching")
                         else:
-                            st.info("ℹ️ Selective matching")
+                            st.info("ℹ️ Highly selective")
                     compare_df = pd.DataFrame({
                         "Algorithm": ["TF-IDF", "Keyword Match"],
                         "Articles Found": [len(tfidf_res), len(kw_res)],
