@@ -230,7 +230,7 @@ if query:
         # Temporal spread
         algo_scores["temporal"] = min(dt["total_days"] / max(days, 1) * 100, 100)
         # Topics: binary success + keyword count
-        algo_scores["topics"] = min(len(topics) / 10 * 100, 100) if topics else 0
+        algo_scores["topics"] = min((len(topics) / 10 * 100), 100) if len(topics) > 0 else 0
         # Coverage: composite itself
         algo_scores["coverage"] = composite
 
