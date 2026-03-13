@@ -11,6 +11,8 @@ feedparser
 beautifulsoup4
 requests
 plotly
+fuzzywuzzy
+python-Levenshtein
 
 # Oil & Gas / War Analysis
 yfinance
