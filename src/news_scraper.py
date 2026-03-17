@@ -83,7 +83,7 @@ def scrape_google_news_rss(
     seen_urls = set()
 
     for term in company.search_terms:
-        query = quote_plus(f"{term} startup India")
+        query = quote_plus(f'"{term}" startup India')
         url = (
             f"https://news.google.com/rss/search?"
             f"q={query}+when:{last_n_days}d&hl=en-IN&gl=IN&ceid=IN:en"
