@@ -106,7 +106,7 @@ def topic_extraction(articles: list) -> list:
 # ═══════════════════════════════════════════════════════════════
 # PAGE
 # ═══════════════════════════════════════════════════════════════
-st.title("📰 Newsssyyy")
+st.title("📰 Newssyy - The news-scraper for Indian startups")
 st.caption("Real-time news intelligence — powered by ML")
 st.markdown("""
 Type **any company name** below, pick a timeline, and instantly see how
