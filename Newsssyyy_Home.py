@@ -16,7 +16,7 @@ from src.data_loader import Company
 from src.news_scraper import scrape_google_news_rss, Article
 
 st.set_page_config(
-    page_title="Newsssyyy",
+    page_title="Newssyy - The news-scraper for Indian startups",
     page_icon="📰",
     layout="wide",
     initial_sidebar_state="expanded",
