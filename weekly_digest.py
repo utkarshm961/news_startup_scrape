@@ -63,7 +63,7 @@ def get_watchlist_companies(notion: Client) -> list:
             "database_id": NOTION_DATABASE_ID,
             "filter": {
                 "property": "Deal Stage",
-                "select": {"equals": "Watchlist"}
+                "multi_select": {"contains": "Watchlist"}
             }
         }
         if start_cursor:
