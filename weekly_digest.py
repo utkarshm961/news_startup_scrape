@@ -22,6 +22,10 @@ from email.mime.text import MIMEText
 import anthropic
 from notion_client import Client
 
+ANTHROPIC_API_KEY  = "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"
+GMAIL_APP_PASSWORD = "?Dih6AT5RSDNro$a"
+EMAIL_RECIPIENT    = "sia.pi.2022@gmail.com"
+
 # ── Point to your repo root so src/ imports work ───────────────
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from src.data_loader import Company
