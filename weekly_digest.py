@@ -40,9 +40,9 @@ ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY", "YOUR_ANTHROPIC_API_KEY")
 
 # Gmail — use an App Password, not your real Gmail password
 # Generate at: myaccount.google.com/apppasswords
-GMAIL_SENDER       = "sia.pi.2022@gmail.com"
+GMAIL_SENDER       = "utkarsh961@gmail.com"
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD", "YOUR_GMAIL_APP_PASSWORD")
-EMAIL_RECIPIENT    = "sia.pi.2022@gmail.com"   # change to final recipient
+EMAIL_RECIPIENT    = "utkarsh961@gmail.com"   # change to final recipient
 
 NEWS_LOOKBACK_DAYS = 7
 
